@@ -1,3 +1,16 @@
+<?php
+
+$miArray=array();
+$miArray[0]="Hola"; 
+$miArray[37]="Chau";
+//echo $miArray[0];
+print_r($miArray);
+//var_dump($miArray);
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
