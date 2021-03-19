@@ -37,7 +37,7 @@ $aProductos[] = array("nombre" => "Aire Acondicionado Split Inverter Frío/Calor
         </div>
     </div>
 </div>
-
+<div></div>
 <table class="table table-hover border">
     <tr>
         <th>Nombre</th>
