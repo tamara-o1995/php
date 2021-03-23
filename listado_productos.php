@@ -5,21 +5,21 @@ $aProductos[0] = array(
     "marca" => "Hitachi",
     "modelo" => "554KS20",
     "stock" => 60,
-    "precio" => 58000
+    "precio" => "$58.000"
 );
 $aProductos[1] = array(
     "nombre" => "Samsung Galaxy A30 Blanco",
     "marca" => "Samsung",
     "modelo" => "Galaxy A30",
     "stock" => 0,
-    "precio" => 22000
+    "precio" => "$22.000"
 );
 $aProductos[2] = array(
     "nombre" => "Aire Acondicionado Split Inverter Frío/Calor Surrey 2900F",
     "marca" => "Surrey",
     "modelo" => "553AIQ1201E",
     "stock" => 5,
-    "precio" => 45000
+    "precio" => "$45.000"
 );
 ?>
 
