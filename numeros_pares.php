@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 echo "<p>Ejercicio 1</p>";
 echo "<ul>";
 for($i=1; $i<101; $i++){

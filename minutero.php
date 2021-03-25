@@ -1,4 +1,9 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 $hr=21;
 $min=10;
 echo '------Mostrar en pantalla la hora "La Hora es 21:10 hs."------';
@@ -22,9 +27,27 @@ for($i=0; $i<60; $i++){
    
 }
 
+// Otra forma de hacerlo: 
+
+// for ($i=0; $i < 60; $i++){
+//     echo "la hora es $hr:$min <br>";
+//     $min++;
+//     if ($min == 60){
+//         $min = 0;
+//         $hr++;
+//     }
+//     if($hr == 24){
+//         $hr=0;
+//     }
+// }
+// echo "La hora es $hr:$min <br>";
+// ?>
+
+
+
 echo '------Modificar el ejercicio para que la variable $hr sea 23------';
 
-for($i=0; $i<50; $i++){
+for ($i=0; $i<50; $i++){
     
     if($min == 59){
         $min = 00;
@@ -68,3 +91,11 @@ $minuto = date("i");
 echo $hora.":".$minuto;
 
 ?>
+
+
+<!-- Otra forma de hacerlo: 
+
+
+
+-->
+
