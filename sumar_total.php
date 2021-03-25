@@ -76,9 +76,9 @@ $aProductos[2] = array(
     </div>
 
 
-<!-- #otra forma seria: 
+<!-- otra forma seria: 
  <div class="container mt-5">
-        <div class="row">
+        <div class="row">*//
             <div class="col-12 text-center mb-4">
                 <h1>Listado de productos</h1>
             </div>
@@ -89,27 +89,27 @@ $aProductos[2] = array(
                     <th>Marca</th>
                     <th>Precio</th>
                 </tr>
-            <?php
+            //*<?php
             // $subTotal = 0;
             // for ($contador = 0; $contador < count ($aProductos); $contador++){}
-            ?>
+            ?>*//
             <tr>
-                <td><?php echo $aProductos[$contador]["nombre"]; ?></td>
-                <td><?php echo $aProductos[$contador]["marca"]; ?></td>
-                <td><?php echo $aProductos[$contador]["precio"]; ?></td>
+                //*<td><?php echo $aProductos[$contador]["nombre"]; ?></td>
+                //*<td><?php echo $aProductos[$contador]["marca"]; ?></td>
+               //*<td><?php echo $aProductos[$contador]["precio"]; ?></td>
                 <td><button class="btn btn-primary">Comprar</button></td>
-            </tr> 
-            <?php
+            //*</tr> 
+            //*<?php
                 // $subTotal = $subTotal . $aProductos[$contador]["precio"];
                 // otra opcion
                 // $subTotal += $subTotal . $aProductos[$contador]["precio"];
                 // }
             ?>
             </table>
-            <h2>El subtotal es: $<?php echo $subTotal; ?></h2>
-        </div>
-    </div>
-</div># -->
+            //*<h2>El subtotal es: $<?php echo $subTotal; ?></h2>
+        //*</div>
+   //* </div>
+//*</div>
 </body>
 
 </html>
