@@ -51,6 +51,9 @@ function calcularNeto($bruto){
               }
             ?> 
     </table>  
+    <?php echo "Cantidad de empleados activos: " . count($aEmpleados);
+
+    ?>
 </head>
 <body>
     
