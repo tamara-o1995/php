@@ -12,18 +12,20 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-sm-5">
+            <div class="col-12 my-3">
                 <h1>Biemvenid@ al sistema</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-12 mt-4">
-                <p></a>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <div class="col-12">
+                <div class="alert alert-primary" role="alert">
+                    <p></a>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 mt-sm-5">
-               <button class="btn btn-success"><a href="index.php">Volver</button>
+            <div class="col-12">
+                <a href="index.php" class="btn btn-primary float-end">Salir</a>
             </div>
         </div>
 </body>
