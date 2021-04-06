@@ -1,5 +1,5 @@
 <?php
-$aNotas= array(8, 4, 3, 9, 1);
+$aNotas= array(8, 4, 5, 3, 9, 1);
 
 function promediar ($aNumeros){
     $suma = 0;
