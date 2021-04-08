@@ -3,7 +3,23 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+if($_POST) { 
+    $dni = $_POST["txtDni"];
+    $nombre = $_POST["txtNombre"];
+    $telefono = $_POST["txtTelefono"];
+    $correo = $_POST["txtCorreo"];
+     
+    $aClientes[] = array(
+        "dni"=>$dni,
+        "nombre"=> $nombre,
+        "telefono"=> $telefono,
+        "correo"=> $correo,
 
+    );
+    $json_encode= json_encode($aClientes);
+
+    file_put_contents("archivo.txt", $json_encode);
+}
 ?>
 
 
