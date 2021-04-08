@@ -3,37 +3,34 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-if (file_exists("archivo.txt")) {
+if (file_exists("archivo.txt")){ 
     $jsonClientes = file_get_contents("archivo.txt");
 
     $aClientes = json_decode($jsonClientes, true);
-    print_r($aClientes);
-} else {
-    $aClientes = array();
+
+
 }
-
-
-
-if ($_POST) {
+else{ 
+   $aClientes = array ();
+}
+if($_POST) { 
     $dni = $_POST["txtDni"];
     $nombre = $_POST["txtNombre"];
     $telefono = $_POST["txtTelefono"];
     $correo = $_POST["txtCorreo"];
-
+     
     $aClientes[] = array(
-        "dni" => $dni,
-        "nombre" => $nombre,
-        "telefono" => $telefono,
-        "correo" => $correo,
+        "dni"=>$dni,
+        "nombre"=> $nombre,
+        "telefono"=> $telefono,
+        "correo"=> $correo,
 
     );
-    $json_encode = json_encode($aClientes);
+    $json_encode= json_encode($aClientes);
 
     file_put_contents("archivo.txt", $json_encode);
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -83,7 +80,7 @@ if ($_POST) {
                             <input type="file" name="archivo" id="archivo" accept=".jpg, .jpeg, .png">
                         </div>
                         <div class="my-3">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-danger">Guardar</button>
                         </div>
                     </form>
                 </div>
