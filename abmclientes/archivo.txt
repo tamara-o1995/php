@@ -1,1 +1,1 @@
-[{"dni":"38270361","nombre":"Tamara","telefono":"2494466495","correo":"omelaniuk@gmail.com"},{"dni":"","nombre":"","telefono":"","correo":""},{"dni":"","nombre":"","telefono":"","correo":""}]
+[{"dni":"38270361","nombre":"Tamara","telefono":"2494466495","correo":"omelaniuk@gmail.com"},{"dni":"38270361","nombre":"Tamara","telefono":"2494466495","correo":"omelaniuk@gmail.com"}]
