@@ -28,7 +28,7 @@ if ($_POST) {
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center">
                 <h1>Formulario</h1>
             </div>
         </div>
@@ -39,15 +39,15 @@ if ($_POST) {
                     <div class="row justify-content-end">
                         <div class="col-sm-12 col-12 mt-4">
                             <form action="" method="POST">
-                                <div class="mb-3">
+                                <div class="my-3">
                                     <input type="text" id="txtUsuario" name="txtUsuario" class="form-control shadow" placeholder="Usuario">
                                 </div>
-                                <div class="mb-3">
+                                <div class="my-3">
                                     <input type="email" id="txtClave" name="txtClave" class="form-control shadow" placeholder="Clave">
                                 </div>
 
                                 <div class="text-right">
-                                    <button type="submit" class="btn">ENVIAR</button>
+                                <button type="submit" class="btn btn-danger">ENVIAR</button>
                                 </div>
                             </form>
 
