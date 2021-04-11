@@ -6,11 +6,10 @@ if ($_POST) {
 
     if ($usuario != "" && $clave != "") {
         header("Location: acceso_confirmado.php");
-    
     } else {
         echo "Valido para usuarios registrados";
-    } 
-    exit; 
+    }
+    exit;
 }
 ?>
 <!DOCTYPE html>
@@ -36,8 +35,8 @@ if ($_POST) {
             <div class="col-12">
                 <form method="POST">
 
-                    <div class="row justify-content-end">
-                        <div class="col-sm-12 col-12 mt-4">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-6 col-6 mt-4">
                             <form action="" method="POST">
                                 <div class="my-3">
                                     <input type="text" id="txtUsuario" name="txtUsuario" class="form-control shadow" placeholder="Usuario">
@@ -46,13 +45,14 @@ if ($_POST) {
                                     <input type="email" id="txtClave" name="txtClave" class="form-control shadow" placeholder="Clave">
                                 </div>
 
-                                <div class="text-right">
-                                <button type="submit" class="btn btn-danger">ENVIAR</button>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-danger">ENVIAR</button>
                                 </div>
                             </form>
 
                         </div>
                     </div>
+                </form>
 </body>
 
 </html>
