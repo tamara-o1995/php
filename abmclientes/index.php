@@ -14,6 +14,7 @@ if (file_exists("archivo.txt")) {
 $id = isset($_GET["id"]) && $_GET["id"] > 0 ? $_GET["id"] : "";
 
 
+
 if ($_POST) {
     $dni = $_POST["txtDni"];
     $nombre = $_POST["txtNombre"];
@@ -65,24 +66,24 @@ if ($_POST) {
 
                         <div class="my-3">
                             <label for="">DNI:
-                                <input type="text" name="txtDni" id="txtDni" class="form-control">
+                                <input value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["dni"] : ""; ?>" type="text" name="txtDni" id="txtDni" class="form-control">
                             </label>
                         </div>
                         <div class="my-3">
                             <label for="">Nombre:
-                                <input type="text" id="txtNombre" name="txtNombre" class="form-control" required value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["nombre"] : "" ?>
+                                <input value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["nombre"] : ""; ?>" type="text" id="txtNombre" name="txtNombre" class="form-control" required value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["nombre"] : "" ?>
 ">
                             </label>
                         </div>
                         <div class="my-3">
                             <label for="">Telefono:
-                                <input type="tel" name="txtTelefono" id="txtTelefono" class="form-control" required value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["telefono"] : "" ?>
+                                <input value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["telefono"] : ""; ?>" type="tel" name="txtTelefono" id="txtTelefono" class="form-control" required value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["telefono"] : "" ?>
 ">
                             </label>
                         </div>
                         <div class="my-3">
                             <label for="">Correo:
-                                <input type="email" name="txtCorreo" id="txtCorreo" class="form-control" required value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["correo"] : "" ?>
+                                <input value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["correo"] : ""; ?>" type="email" name="txtCorreo" id="txtCorreo" class="form-control" required value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["correo"] : "" ?>
 ">
                             </label>
                         </div>
@@ -105,14 +106,14 @@ if ($_POST) {
                             <th>Acciones</th>
                         </tr>
                         <?php
-                        foreach ($aClientes as $cliente) : ?>
+                        foreach ($aClientes as $key => $cliente) :  ?>
                             <tr>
                                 <td></td>
                                 <td><?php echo $cliente["dni"]; ?></td>
                                 <td><?php echo $cliente["nombre"]; ?></td>
                                 <td><?php echo $cliente["correo"]; ?></td>
                                 <td style="width: 110px;">
-                                    <a href="index.php?id=<?php echo $key; ?>"><i class="fas fa-edit"></i></a>
+                                    <a href="index.php?id=<?php echo $key;?>"><i class="fas fa-edit"></i></a>
                                     <a href=""><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
