@@ -2,9 +2,12 @@
 session_start();
 
 if($_POST){
-  session_destroy("login.php");
+  if(isset($_POST["btnCerrar"])){
+    session_destroy();
+
+    header("location: login.php");
+  }
   
-  header("location: login.php");
 }
 ?>
 
