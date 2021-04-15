@@ -33,7 +33,7 @@ if ($_POST) {
         if($_FILES["archivo"]["error"] !== UPLOAD_ERR_OK) {
             $nuevoNombre = $aClientes[$id]["imagen"];
         }
-    
+
         if($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) {
             if(file_exists("images/" . $aClientes[$id]["imagen"])){
                 unlink("images/" . $aClientes[$id]["imagen"]);
