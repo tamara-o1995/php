@@ -10,9 +10,7 @@ if (file_exists("archivo.txt")) {
 } else {
     $aClientes = array();
 }
-
-$id = isset($_GET["id"]) && $_GET["id"] > 0 ? $_GET["id"] : "";
-
+$id = isset($_GET["id"]) && $_GET["id"] != "" ? $_GET["id"] : "";
 
 
 if ($_POST) {
@@ -32,6 +30,16 @@ if ($_POST) {
 
     file_put_contents("archivo.txt", $json_encode);
 }
+if (isset($_GET["id"]) && $_GET["id"] != "" && isset($_GET["do"]) && $_GET["do"] == "eliminar") {
+    unset($aClientes["$id"]);
+
+    $jsonClientes = json_encode($aClientes);
+
+    file_put_contents("archivo.txt", $jsonClientes);
+
+    header("Location: index.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,14 +50,11 @@ if ($_POST) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de clientes</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="styesheet" href="css/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="css/fontawesome/css/">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css">
-    <script src="js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome/css/fontawesome.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
@@ -63,7 +68,6 @@ if ($_POST) {
             <div class="row">
                 <div class="col-sm-6">
                     <form action="" method="POST" enctype="multipart/form-data">
-
                         <div class="my-3">
                             <label for="">DNI:
                                 <input value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["dni"] : ""; ?>" type="text" name="txtDni" id="txtDni" class="form-control">
@@ -96,30 +100,36 @@ if ($_POST) {
                         </div>
                     </form>
                 </div>
+
                 <div class="col-sm-6">
                     <table class="table table-hover border">
-                        <tr>
-                            <th>Imagen</th>
-                            <th>DNI</th>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Acciones</th>
-                        </tr>
-                        <?php
-                        foreach ($aClientes as $key => $cliente) :  ?>
+                        <tbody>
                             <tr>
-                                <td></td>
-                                <td><?php echo $cliente["dni"]; ?></td>
-                                <td><?php echo $cliente["nombre"]; ?></td>
-                                <td><?php echo $cliente["correo"]; ?></td>
-                                <td style="width: 110px;">
-                                    <a href="index.php?id=<?php echo $key;?>"><i class="fas fa-edit"></i></a>
-                                    <a href=""><i class="fas fa-trash-alt"></i></a>
-                                </td>
+                                <th>Imagen</th>
+                                <th>DNI</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Acciones</th>
                             </tr>
-                        <?php endforeach; ?>
-                    </table>
+                            <?php
+                            foreach ($aClientes as $indice => $cliente) : ?>
+                                <tr>
+                                    <td></td>
+                                    <td><?php echo $cliente["dni"]; ?></td>
+                                    <td><?php echo $cliente["nombre"]; ?></td>
+                                    <td><?php echo $cliente["correo"]; ?></td>
+                                    <td style="width: 110px;">
+                                        <a href="index.php?id=<?php echo $indice; ?>"><i class="fas fa-edit"></i></a>
+                                        <a class="p-1 icono-rojo" href="index.php?id=<?php echo $indice; ?>&do=eliminar"><i class="fas fa-trash-alt"></i></a>
 
+                                    </td>
+
+                                </tr>
+                            <?php endforeach;
+                            ?>
+                        </tbody>
+                    </table>
+                    <a href="index.php"><i class="fas fa-plus"></i></a>
                 </div>
             </div>
         </div>
