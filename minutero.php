@@ -41,11 +41,11 @@ for($i=0; $i<60; $i++){
 //     }
 // }
 // echo "La hora es $hr:$min <br>";
-// ?>
+ ?>
 
 
 
-echo '------Modificar el ejercicio para que la variable $hr sea 23------';
+<!-- echo '------Modificar el ejercicio para que la variable $hr sea 23------';
 
 for ($i=0; $i<50; $i++){
     
@@ -93,9 +93,7 @@ echo $hora.":".$minuto;
 ?>
 
 
-<!-- Otra forma de hacerlo: 
 
 
 
 -->
-
