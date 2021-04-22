@@ -13,16 +13,17 @@ class Alumno extends Persona {
     public $legajo;
     public $notaPortfolio;
     public $notaPhp;
-    public $notaProyectos;
+    public $notaProyecto;
 
 
 
     public function __construct(){
         $this->notaPortfolio = 0.0;
         $this->notaPhp = 0.0;
-        $this->notaProyectos = 0.0;
+        $this->notaProyecto = 0.0;
     }
     public function imprimir(){
+        
     }
     
     }
