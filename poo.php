@@ -1,26 +1,44 @@
 <?php 
 class Persona {
-public $dni;
-public $nombre;
-public $edad;
-public $nacionalidad;
+protected $dni;
+protected $nombre;
+protected $edad;
+protected $nacionalidad;
 
-public function imprimir(){
-}
-}
+    public function setDni($dni){ $this->dni = $dni; }
+    public function getDni(){ return $this->dni; }
 
+    public function setNombre($nombre){ $this->nombre = $nombre; }
+    public function getNombre(){ return $this->nombre; }
+
+    public function setEdad($edad){ $this->edad = $edad; }
+    public function getEdad(){ return $this->edad; }
+
+    public function setNacionalidad($nacionalidad){ $this->nombre = $nacionalidad; }
+    public function getNacionalidad(){ return $this->nacionalidad; }
+
+}
 class Alumno extends Persona {
-    public $legajo;
-    public $notaPortfolio;
-    public $notaPhp;
-    public $notaProyecto;
+    private $legajo;
+    private $notaPortfolio;
+    private $notaPhp;
+    private $notaProyecto;
 
 
     public function __construct(){
         $this->notaPortfolio = 0.0;
         $this->notaPhp = 0.0;
         $this->notaProyecto = 0.0;
+    
     }
+    public function __get($propiedad) {
+        return $this->$propiedad;
+    }
+
+    public function __set($propiedad, $valor) {
+        $this->$propiedad = $valor;
+    }
+
     public function imprimir(){
         echo "Nombre = " . $this->nombre . "<br>";
         echo "Edad = " . $this->edad . "<br>";
@@ -60,6 +78,13 @@ class Docente extends Persona {
             echo self::ESPECIALIDAD_ECO . "<br>";
             echo self::ESPECIALIDAD_BBDD . "<br>";
         }
+        public function __get($propiedad) {
+            return $this->$propiedad;
+        }
+    
+        public function __set($propiedad, $valor) {
+            $this->$propiedad = $valor;
+        }
     
         public function __destruct() {
             echo "Destruyendo el objeto " . $this->nombre . "<br>";
@@ -67,9 +92,9 @@ class Docente extends Persona {
 }
 //programa
 $alumno1 = new Alumno();
-$alumno1->nombre = "Ana Valle";
-$alumno1->edad = 36;
-$alumno1->nacionalidad = "Argentina";
+$alumno1-> setNombre("Ana Valle");
+$alumno1->setEdad (36) ;
+$alumno1->setNacionalidad ("Argentina");
 $alumno1->notaPhp = 9;
 $alumno1->notaPortfolio = 8;
 $alumno1->notaProyecto = 9;
