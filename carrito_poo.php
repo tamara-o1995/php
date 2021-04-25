@@ -12,15 +12,18 @@ class Cliente
     private $telefono;
     private $descuento;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->descuento = 0.0;
     }
 
-    public function __get($propiedad) {
+    public function __get($propiedad)
+    {
         return $this->$propiedad;
     }
 
-    public function __set($propiedad, $valor) {
+    public function __set($propiedad, $valor)
+    {
         $this->$propiedad = $valor;
     }
 
@@ -31,38 +34,41 @@ class Cliente
         echo "Correo: " . $this->correo . "<br>";
         echo "Telefono: " . $this->telefono . "<br>";
         echo "Descuento: " . $this->descuento . "<br><br>";
-
     }
 }
 
-class Producto{
+class Producto
+{
     private $cod;
     private $nombre;
     private $precio;
     private $descripcion;
     private $iva;
 
-    public function __construct(){
-        $this->precio= 0.0;
+    public function __construct()
+    {
+        $this->precio = 0.0;
         $this->iva = 0.0;
     }
 
-    public function __get($propiedad) {
+    public function __get($propiedad)
+    {
         return $this->$propiedad;
     }
 
-    public function __set($propiedad, $valor) {
+    public function __set($propiedad, $valor)
+    {
         $this->$propiedad = $valor;
     }
-    
-    public function imprimir(){
+
+    public function imprimir()
+    {
         echo "COD: " . $this->cod . "<br>";
         echo "Nombre: " . $this->nombre . "<br>";
         echo "Precio: " . $this->precio . "<br>";
         echo "Descripcion: " . $this->descripcion . "<br>";
         echo "IVA: " . $this->iva . "<br>";
     }
-
 }
 
 class Carrito{
@@ -78,19 +84,21 @@ class Carrito{
         $this->total = 0.0;
     }
 
-    public function __get($propiedad) {
+    public function __get($propiedad){
         return $this->$propiedad;
     }
 
-    public function __set($propiedad, $valor) {
+    public function __set($propiedad, $valor){
         $this->$propiedad = $valor;
     }
 
     public function cargarProducto($producto){
         $this->aProductos[] = $producto;
     }
-
-    public function imprimirTicket() {
+    private function calcularPrecioSinIva($importe, $iva){
+        return $importe / ($iva / 100 + 1);
+    }
+    public function imprimirTicket(){
         echo "<table class='table table-hover border' style='width:400px'>";
         echo "<tr><th colspan='2' class='text-center'>ECO MARKET</th></tr>
               <tr>
@@ -108,14 +116,14 @@ class Carrito{
               <tr>
                 <th colspan='2'>Productos:</th>
               </tr>";
-              foreach ($this->aProductos as $producto) {
-                echo "<tr>
+        foreach ($this->aProductos as $producto) {
+            echo "<tr>
                             <td>" . $producto->nombre . "</td>
                             <td>$ " . number_format($producto->precio, 2, ",", ".") . "</td>
                         </tr>";
-                $this->subTotal += $producto->precio;
-              }
-              $this->total = $this->subTotal * 1.21;
+            $this->subTotal += $producto->precio;
+        }
+        $this->total = $this->subTotal * 1.21;
         echo "<tr>
                 <th>Subtotal s/IVA:</th>
                 <td>$ " . number_format($this->subTotal, 2, ",", ".") . "</td>
@@ -161,12 +169,14 @@ $carrito->cargarProducto($producto2);
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECO MARKET</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -176,4 +186,5 @@ $carrito->cargarProducto($producto2);
         </div>
     </div>
 </body>
+
 </html>
