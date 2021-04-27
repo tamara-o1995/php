@@ -159,20 +159,20 @@ class Clase
     }
     public function ImprimirListado()
     {
-        echo "<table class='table table-success table table-hover text-center' style='width:500px'>";
-        echo "<tr class='table-active table-dark'>
-                <th colspan='3'>Clase:</th>
-                <td>" . $this->nombre . "</td>
-              <tr>
+        echo "<table class='table table-primary table table-hover text-center border border-dark' style='width:500px'>";
+        echo "<tr class='table-dark'>
+                <th colspan='2' class='text-uppercase'>Clase</th>
+                <td colspan='2' class='text-info text-uppercase text-decoration-underline'>" . $this->nombre . "</td>
+              <tr class='table-active'>
                 <th>Entrenador:</th>
                 <td>" . $this->entrenador->nombre . "</td>
                 <th>Celular:</th>
                 <td>" . $this->entrenador->celular . "</td>
                 
             </tr>
-              <tr class='table-active table-dark'>
+              <tr class='table-dark'>
                     <th colspan='4' class='text-center'>ALUMNOS</th>
-                    <tr class='text-center'>
+                    <tr class='text-center border border-dark'>
                         <th>DNI</th>
                         <th>Nombre</th>
                         <th>Apto fisico</th>
@@ -242,13 +242,7 @@ $clase2->inscribirAlumno($alumno3);
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="text-center">Clases</h1>
-            </div>
-        </div>
-
-        <div class="row">
+        <div class="row justify-content-around">
             <div class="col-12">
                 <div class="col-6 py-3">
                     <?php $clase1->imprimirListado(); ?>
@@ -259,32 +253,32 @@ $clase2->inscribirAlumno($alumno3);
             </div>
         </div>
 
-            <div class="row">
-                <div class="col-12 mt-5">
-                    <table class="table table-success table table-hover text-center" style='width:500px'>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-primary table table-hover text-center border border-dark" style='width:500px'>
 
-                        <tr class='table-active table-dark'>
-                            <th colspan='9' class='text-center'>LISTADO DE ALUMNOS</th>
-                        <tr class='text-center'>
-                            <th>NOMBRE</th>
-                            <th>DNI</th>
-                            <th>MAIL</th>
-                            <th>CELULAR</th>
-                            <th>FECHA NACIMIENTO</th>
-                            <th>PESO</th>
-                            <th>ALTURA</th>
-                            <th>APTO FISICO</th>
-                            <th>PRESENTISMO</th>
-                        </tr>
+                    <tr class='table-dark'>
+                        <th colspan='9' class='text-center table-active text-info text-uppercase text-decoration-underline'>LISTADO DE ALUMNOS</th>
+                    <tr class='table-dark text-center border border-dark'>
+                        <th>NOMBRE</th>
+                        <th>DNI</th>
+                        <th>MAIL</th>
+                        <th>CELULAR</th>
+                        <th>FECHA NACIMIENTO</th>
+                        <th>PESO</th>
+                        <th>ALTURA</th>
+                        <th>APTO FISICO</th>
+                        <th>PRESENTISMO</th>
+                    </tr>
 
-                        <?php $alumno1->imprimir(); ?>
-                        <?php $alumno2->imprimir(); ?>
-                        <?php $alumno3->imprimir(); ?>
-                        <?php $alumno4->imprimir(); ?>
-                    </table>
-                </div>
+                    <?php $alumno1->imprimir(); ?>
+                    <?php $alumno2->imprimir(); ?>
+                    <?php $alumno3->imprimir(); ?>
+                    <?php $alumno4->imprimir(); ?>
+                </table>
             </div>
         </div>
+    </div>
 </body>
 
 </html>
