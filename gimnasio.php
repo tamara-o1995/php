@@ -159,28 +159,37 @@ class Clase
     }
     public function ImprimirListado()
     {
-        echo "<table class='table table-success' 'table table-bordered' 'table-striped' 'table table-hover' 'table-success text-center' style='width:500px'>";
-        echo "<tr class='table-active table-dark' scope='row'><th colspan='2' class='text-center'>GIMNASIO</th></tr>
- 
-              <tr>
-                <th>Clase</th>
+        echo "<table class='table table-success table table-hover text-center' style='width:500px'>";
+        echo "<tr class='table-active table-dark'>
+                <th colspan='3'>Clase:</th>
                 <td>" . $this->nombre . "</td>
-              </tr>
               <tr>
-                <th>Entrenador</th>
+                <th>Entrenador:</th>
                 <td>" . $this->entrenador->nombre . "</td>
-              </tr>
-              <tr class='table-active table-dark' scope='row'>
-                <th colspan='2' class='text-uppercase text-center'>Alumnos</th>
-              </tr>";
+                <th>Celular:</th>
+                <td>" . $this->entrenador->celular . "</td>
+                
+            </tr>
+              <tr class='table-active table-dark'>
+                    <th colspan='4' class='text-center'>ALUMNOS</th>
+                    <tr class='text-center'>
+                        <th>DNI</th>
+                        <th>Nombre</th>
+                        <th>Apto fisico</th>
+                        <th>Presentismo</th>
+                    </tr>
+               </tr>";
+
         foreach ($this->aAlumnos as $alumno) {
-            echo "<tr>
-                        <td>" . $alumno->nombre . "</td>
-                        <td>" . $alumno->dni . "</td>
+            echo "<tr class='text-center'>
+                    <td>" . $alumno->nombre . "</td>
+                    <td>" . $alumno->dni . "</td>
+                    <td>" . $alumno->aptoFisico . "</td>
+                    <td>" . $alumno->presentismo . "</td>
+                    
+
                 </tr>";
         }
-
-
         "</table>";
     }
 }
@@ -226,6 +235,7 @@ $clase2->inscribirAlumno($alumno3);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <title>Gimnasio</title>
 </head>
@@ -234,32 +244,47 @@ $clase2->inscribirAlumno($alumno3);
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="text-uppercase">Clases</h1>
-                <?php $clase1->imprimirListado(); ?>
-                <?php $clase2->imprimirListado(); ?>
+                <h1 class="text-center">Clases</h1>
             </div>
-            
-            <table class="table table-success 'table-striped' 'table table-hover' 'text-center'" style='width:500px'>
-                <tr class="table-active table-dark text-center" scope="row">
-                    <h2 class="text-uppercase">Listado de alumnos</h2>
-                    <th>NOMBRE</th>
-                    <th>DNI</th>
-                    <th>MAIL</th>
-                    <th>CELULAR</th>
-                    <th>FECHA NACIMIENTO</th>
-                    <th>PESO</th>
-                    <th>ALTURA</th>
-                    <th>APTO FISICO</th>
-                    <th>PRESENTISMO</th>
-                </tr>
-
-                <?php $alumno1->imprimir(); ?>
-                <?php $alumno2->imprimir(); ?>
-                <?php $alumno3->imprimir(); ?>
-                <?php $alumno4->imprimir(); ?>
-            </table>
         </div>
-    </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="col-6 py-3">
+                    <?php $clase1->imprimirListado(); ?>
+                </div>
+                <div class="col-6 py-3">
+                    <?php $clase2->imprimirListado(); ?>
+                </div>
+            </div>
+        </div>
+
+            <div class="row">
+                <div class="col-12 mt-5">
+                    <table class="table table-success table table-hover text-center" style='width:500px'>
+
+                        <tr class='table-active table-dark'>
+                            <th colspan='9' class='text-center'>LISTADO DE ALUMNOS</th>
+                        <tr class='text-center'>
+                            <th>NOMBRE</th>
+                            <th>DNI</th>
+                            <th>MAIL</th>
+                            <th>CELULAR</th>
+                            <th>FECHA NACIMIENTO</th>
+                            <th>PESO</th>
+                            <th>ALTURA</th>
+                            <th>APTO FISICO</th>
+                            <th>PRESENTISMO</th>
+                        </tr>
+
+                        <?php $alumno1->imprimir(); ?>
+                        <?php $alumno2->imprimir(); ?>
+                        <?php $alumno3->imprimir(); ?>
+                        <?php $alumno4->imprimir(); ?>
+                    </table>
+                </div>
+            </div>
+        </div>
 </body>
 
 </html>
